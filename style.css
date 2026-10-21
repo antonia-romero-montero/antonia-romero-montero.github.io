@@ -1,0 +1,351 @@
+/* ------------------------------------------------------------
+   Academic site: sidebar + content layout
+   Edit the colors and fonts here; every page uses this file.
+   ------------------------------------------------------------ */
+
+:root {
+  --paper: #f8f9fb;
+  --side: #eef0f5;
+  --ink: #172033;
+  --muted: #566074;
+  --rule: #d5dae3;
+  --accent: #7a2e65;
+  --accent-deep: #5a1f4a;
+
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Literata", Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent-deep);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 19rem minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2.5rem 2rem;
+  background: var(--side);
+  border-right: 1px solid var(--rule);
+}
+
+main {
+  width: 100%;
+  max-width: 46rem;
+  padding: 3.5rem 3.5rem 4rem;
+}
+
+/* ---------- Sidebar ---------- */
+
+.portrait {
+  position: relative;
+  width: 8.5rem;
+  height: 8.5rem;
+  margin: 0 0 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.role {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.sidebar nav {
+  margin: 2rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar nav li + li {
+  margin-top: 0.15rem;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.2rem 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sidebar nav a:hover {
+  color: var(--accent);
+}
+
+.sidebar nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.contact {
+  margin: 1.75rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+.contact li + li {
+  margin-top: 0.25rem;
+}
+
+.contact a {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Content ---------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  color: var(--ink);
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 2.75rem 0 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+ul.plain {
+  margin: 0 0 1.1rem;
+  padding-left: 1.2rem;
+}
+
+ul.plain li {
+  margin-bottom: 0.3rem;
+}
+
+.meta {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.entry {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.entry:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry p:last-child {
+  margin-bottom: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* CV chronology: the year column carries real information */
+.chronology {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1.1rem 1.5rem;
+  margin: 0 0 1.1rem;
+}
+
+.chronology dt {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.chronology dd {
+  margin: 0;
+}
+
+.chronology dd strong {
+  font-family: var(--display);
+  font-weight: 650;
+}
+
+.cv-download {
+  display: inline-block;
+  margin: 0 0 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  font-family: var(--display);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cv-download:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+footer {
+  margin-top: 3.5rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 52rem) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 1.75rem 1.25rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .portrait {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .sidebar nav li + li {
+    margin-top: 0;
+  }
+
+  .contact ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .contact li + li {
+    margin-top: 0;
+  }
+
+  main {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .chronology {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .chronology dd {
+    margin-bottom: 1.1rem;
+  }
+}
